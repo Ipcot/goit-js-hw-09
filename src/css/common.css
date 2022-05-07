@@ -16,3 +16,20 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+color: teal;
+background-color: peru;
+}
+.field {
+display: flex;
+flex-direction: column;
+}
+
+
