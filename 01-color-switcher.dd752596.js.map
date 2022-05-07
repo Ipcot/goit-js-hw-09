@@ -1,1 +1,0 @@
-{"version":3,"sources":["js/01-color-switcher.js"],"names":["console","log"],"mappings":";AACAA,QAAQC,IAAI","file":"01-color-switcher.dd752596.js","sourceRoot":"../src","sourcesContent":["\nconsole.log(\"r\");"]}
