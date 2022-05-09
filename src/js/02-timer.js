@@ -2,13 +2,12 @@ import flatpickr from 'flatpickr';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'flatpickr/dist/flatpickr.min.css';
 
-
 const refs = {
   startBtn: document.querySelector('[data-start]'),
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
   minutes: document.querySelector('[data-minutes]'),
-    seconds: document.querySelector('[data-seconds]'),
+  seconds: document.querySelector('[data-seconds]'),
   div: document.querySelector('.timer'),
 };
 
@@ -22,10 +21,17 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-      if (selectedDates[0] < Date.now()) {
-        Notify.failure('Please choose a date in the future');
-    //   alert('Please choose a date in the future');
+    if (selectedDates[0] < Date.now()) {
+      Notify.failure('Please choose a date in the future');
+      
     } else {
+      clearInterval(timerID);
+
+      refs.days.textContent = '00';
+      refs.hours.textContent = '00';
+      refs.minutes.textContent = '00';
+      refs.seconds.textContent = '00';
+
       selectedDate = selectedDates[0];
       refs.startBtn.disabled = false;
       refs.startBtn.addEventListener('click', onBtnClick);
@@ -68,9 +74,9 @@ function startCount(setData) {
     refs.days.textContent = formatedDate.days;
     refs.hours.textContent = formatedDate.hours;
     refs.minutes.textContent = formatedDate.minutes;
-      refs.seconds.textContent = formatedDate.seconds;
-      refs.div.style.backgroundColor = `${getRandomHexColor()}`;
-      refs.div.style.color = `${getRandomHexColor()}`;
+    refs.seconds.textContent = formatedDate.seconds;
+    refs.div.style.backgroundColor = `${getRandomHexColor()}`;
+    refs.div.style.color = `${getRandomHexColor()}`;
     if (
       formatedDate.days === '00' &&
       formatedDate.hours === '00' &&
@@ -90,4 +96,3 @@ function onBtnClick() {
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
