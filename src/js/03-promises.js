@@ -2,7 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import throttle from 'lodash.throttle';
 
 const refs = {
-  form: document.querySelector(".form"),
+  form: document.querySelector("form"),
   delay: document.querySelector('[name="delay"]'),
   step: document.querySelector('[name="step"]'),
   amount: document.querySelector('[name="amount"]'),
@@ -58,7 +58,7 @@ function toStartMakePromises() {
   .catch(({ position, delay }) => {
     Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
   });
-    delay = delay + step
+    delay += step
     
 }
 };
